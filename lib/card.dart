@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:word_list/word.dart';
 
 class WordCard extends StatelessWidget {
   final String enWord;
   final String arWord;
   final String id;
-  final Function(String) delete;
-  const WordCard(this.enWord, this.arWord, this.id, this.delete, {Key? key})
+
+  const WordCard(this.enWord, this.arWord, this.id, {Key? key})
       : super(key: key);
 
   @override
@@ -23,7 +25,7 @@ class WordCard extends StatelessWidget {
       trailing: IconButton(
           icon: const Icon(Icons.delete),
           onPressed: () {
-            delete(id);
+            Provider.of<WordList>(context, listen: false).removeItem(id);
           }),
     );
   }

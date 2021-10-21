@@ -21,10 +21,10 @@ class _HomePageState extends State<HomePage> {
       body: Consumer<WordList>(builder: (context, wordData, child) {
         return ListView.separated(
             itemBuilder: (context, index) => WordCard(
-                wordData.list[index].enWord,
-                wordData.list[index].arWord,
-                wordData.list[index].id,
-                wordData.removeItem),
+                  wordData.list[index].enWord,
+                  wordData.list[index].arWord,
+                  wordData.list[index].id,
+                ),
             separatorBuilder: (context, index) => const SizedBox(
                   height: 10,
                 ),
@@ -35,9 +35,7 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Colors.lightBlueAccent,
         onPressed: () {
           showModalBottomSheet(
-              context: context,
-              builder: (context) =>
-                  BottomSheett(Provider.of<WordList>(context).addItem));
+              context: context, builder: (context) => const BottomSheett());
         },
       ),
     );

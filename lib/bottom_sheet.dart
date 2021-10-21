@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:word_list/word.dart';
 
 class BottomSheett extends StatefulWidget {
-  const BottomSheett(this.addItem, {Key? key}) : super(key: key);
-  final Function(String en, String ar, String x) addItem;
+  const BottomSheett({Key? key}) : super(key: key);
 
   @override
   State<BottomSheett> createState() => _BottomSheettState();
@@ -52,7 +53,7 @@ class _BottomSheettState extends State<BottomSheett> {
               ),
               MaterialButton(
                 onPressed: () {
-                  widget.addItem(
+                  Provider.of<WordList>(context, listen: false).addItem(
                       enWord.text, arWord.text, DateTime.now().toString());
                   Navigator.pop(context);
                 },
